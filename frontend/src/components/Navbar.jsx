@@ -1,23 +1,97 @@
-import React from "react";
+import { Fragment } from "react";
+import { NavLink, Route, Routes } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
+import { AboutUs, Services, Pricing, Legal } from "./index";
+
+const categories = [
+  { name: "About" },
+  { name: "Services" },
+  { name: "Pricing" },
+  { name: "Legal" },
+];
+
+// TODO: use NavLink to route stuff
 const Navbar = () => {
   return (
-    <Disclosure as="nav" className="bg-orange-500">
-      <div className="flex items-center justify-between h-20">
-        <div className="absolute flex items-center justify-start pl-5">
-          <p>Absolute</p>
-        </div>
-        <div className="w-screen">
-          <div className="relative flex justify-end pr-10">
-            <div className="flex flex-row space-x-10">
-              <p>Hi</p>
-              <p>Bye</p>
+    <>
+      <Disclosure as="nav" className="bg-gray-800">
+        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="relative flex h-16 items-center justify-between">
+            <div className="relative flex flex-shrink items-center lg:justify-start justify-between w-full font-bold text-white">
+              <div className="sm:hidden absolute inset-y-0 left-0 flex items-center">
+                {/* Menu UI */}
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <XMarkIcon
+                    className="ui-open:block ui-not-open:hidden h-6 w-6"
+                    aria-hidden="true"
+                  />
+                  <Bars3Icon
+                    className="ui-open:hidden ui-not-open:block h-6 w-6"
+                    aria-hidden="true"
+                  />
+                </Disclosure.Button>
+              </div>
+              {/* logo */}
+              <h1 className="block w-auto mx-auto sm:mx-0 lg:hidden">
+                Our Company
+              </h1>
+              <h1 className="hidden w-auto lg:block">Our Company</h1>
+            </div>
+            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
+              {/* nav items */}
+              <div className="hidden sm:ml-6 sm:block">
+                <div className="flex space-x-4">
+                  {categories.map((item) => (
+                    <NavLink
+                      key={item.name}
+                      to={`/${item.name}`}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "bg-gray-900 text-white"
+                          : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      }
+                    >
+                      {item.name}
+                    </NavLink>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </Disclosure>
+
+        {/* Menu Items */}
+        <Disclosure.Panel className="sm:hidden">
+          <div className="space-y-1 px-2 pt-2 pb-3">
+            {categories.map((item) => (
+              <Disclosure.Button
+                key={item.name}
+                as={Fragment}
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                }
+              >
+                <NavLink to={`/${item.name}`}>{item.name}</NavLink>
+              </Disclosure.Button>
+            ))}
+          </div>
+        </Disclosure.Panel>
+      </Disclosure>
+
+      <Routes>
+        {categories.map((item) => (
+          <Route
+            key={item.name}
+            path={`/${item.name}`}
+            element={`<${item.name} />`}
+          />
+        ))}
+      </Routes>
+    </>
   );
 };
 
