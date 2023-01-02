@@ -1,29 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
-import { AboutUs, Services, Pricing, Legal } from "../components";
+import { HeroScreen, AboutUs, Services, Pricing, Legal } from "../components";
+
+const categories = [
+  { name: "About", to: "AboutUs" },
+  { name: "Services", to: "Services" },
+  { name: "Pricing", to: "Pricing" },
+  { name: "Legal", to: "Legal" },
+];
 
 const Home = () => {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Navbar />
-      <div className="bg-cover bg-black">
-        <div className="bg-center bg-contain bg-no-repeat bg-[url('assets/mars.jpg')]">
-          <div className="flex flex-col items-center justify-center h-screen">
-            <div className="text-white font-bold sm:text-6xl text-5xl pb-5">
-              <h1>Our Company</h1>
-            </div>
-            <button
-              className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => setCount(count + 1)}
-            >
-              {count} Joined!
-            </button>
-          </div>
-        </div>
-      </div>
+      <Navbar categories={categories} />
+      <Routes>
+        <Route path="/" element={<HeroScreen />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/Pricing" element={<Pricing />} />
+        <Route path="/Legal" element={<Legal />} />
+      </Routes>
     </>
   );
 };

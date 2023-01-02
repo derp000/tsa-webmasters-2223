@@ -1,19 +1,9 @@
 import { Fragment } from "react";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import { AboutUs, Services, Pricing, Legal } from "./index";
-
-const categories = [
-  { name: "About" },
-  { name: "Services" },
-  { name: "Pricing" },
-  { name: "Legal" },
-];
-
-// TODO: use NavLink to route stuff
-const Navbar = () => {
+const Navbar = ({ categories }) => {
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800">
@@ -34,10 +24,12 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               {/* logo */}
-              <h1 className="block w-auto mx-auto sm:mx-0 lg:hidden">
-                Our Company
-              </h1>
-              <h1 className="hidden w-auto lg:block">Our Company</h1>
+              <Link to="/" className="block w-auto mx-auto sm:mx-0 lg:hidden">
+                <h1>Our Company</h1>
+              </Link>
+              <Link to="/" className="hidden w-auto lg:block">
+                <h1>Our Company</h1>
+              </Link>
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
               {/* nav items */}
@@ -46,10 +38,10 @@ const Navbar = () => {
                   {categories.map((item) => (
                     <NavLink
                       key={item.name}
-                      to={`/${item.name}`}
+                      to={`/${item.to}`}
                       className={({ isActive }) =>
                         isActive
-                          ? "bg-gray-900 text-white"
+                          ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                           : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                       }
                     >
@@ -71,26 +63,16 @@ const Navbar = () => {
                 as={Fragment}
                 className={({ isActive }) =>
                   isActive
-                    ? "bg-gray-900 text-white"
+                    ? "bg-gray-900 text-white hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                     : "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 }
               >
-                <NavLink to={`/${item.name}`}>{item.name}</NavLink>
+                <NavLink to={`/${item.to}`}>{item.name}</NavLink>
               </Disclosure.Button>
             ))}
           </div>
         </Disclosure.Panel>
       </Disclosure>
-
-      <Routes>
-        {categories.map((item) => (
-          <Route
-            key={item.name}
-            path={`/${item.name}`}
-            element={`<${item.name} />`}
-          />
-        ))}
-      </Routes>
     </>
   );
 };
