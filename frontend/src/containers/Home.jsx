@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
-import { HeroScreen, AboutUs, Services, Pricing, Legal } from "../components";
+import { LandingPage, AboutUs, Services, Pricing, Legal } from "../components";
 
 const categories = [
   { name: "About", to: "AboutUs" },
@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <Navbar categories={categories} />
       <Routes>
-        <Route path="/" element={<HeroScreen />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/Pricing" element={<Pricing />} />
