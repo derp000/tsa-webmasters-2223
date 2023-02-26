@@ -13,7 +13,7 @@ const LandingPage = () => {
           <p className="py-6 pr-24">
             Create a fictitious company and design an appropriate website. The
             website should provide information starting with promotion, basic
-            information, cost, planning, training, vehicles, safety, launch, and
+            cd information, cost, planning, training, vehicles, safety, launch, and
             recovery.
           </p>
           <button className="btn btn-primary">Get Started</button>
