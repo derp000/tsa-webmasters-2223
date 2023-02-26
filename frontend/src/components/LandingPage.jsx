@@ -2,22 +2,23 @@ import React from "react";
 
 const LandingPage = () => {
   return (
-    <div>
-      <div className="flex flex-col items-start p-0 gap-10 h-[26rem] left-28 right-[40rem] top-52">
-        <div className="w-[38rem] h-80 flex-none order-none self-stretch grow-0 text-7xl text-white font-extrabold">
-          Be the next astronaut.
-        </div>
-        <div className="w-[38rem] h-24 flex-none order-1 self-stretch grow-0">
-          <div className="text-lg">
-            Our team of experts uses a methodology to identify the credit cards most likely to fit your needs. We examine annual percentage rates, annual fees.
-          </div>
+    <div className="hero min-h-screen bg-black px-10">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <img
+          src="https://images-assets.nasa.gov/image/PIA03276/PIA03276~orig.jpg"
+          className="max-w-sm rounded-lg shadow-2xl"
+        />
+        <div>
+          <h1 className="text-5xl font-bold">Become the next astronaut.</h1>
+          <p className="py-6 pr-24">
+            Create a fictitious company and design an appropriate website. The
+            website should provide information starting with promotion, basic
+            information, cost, planning, training, vehicles, safety, launch, and
+            recovery.
+          </p>
+          <button className="btn btn-primary">Get Started</button>
         </div>
       </div>
-      <button className="absolute w-48 h-14 left-32 top-[42rem] bg-yellow-100 hover:bg-yellow-200 rounded-md"> 
-        <div className="text-2xl text-black font-bold text-center">
-          Get Started
-        </div>
-      </button>
     </div>
   );
 };

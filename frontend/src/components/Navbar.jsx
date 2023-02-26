@@ -25,10 +25,10 @@ const Navbar = ({ categories }) => {
               </div>
               {/* logo */}
               <Link to="/" className="block w-auto mx-auto sm:mx-0 lg:hidden">
-                <h1>Our Company</h1>
+                <h1>Helios</h1>
               </Link>
               <Link to="/" className="hidden w-auto lg:block">
-                <h1>Our Company</h1>
+                <h1>Helios</h1>
               </Link>
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">

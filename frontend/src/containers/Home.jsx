@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <Navbar categories={categories} />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" className="flex justify-center items-start" element={<LandingPage />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Services" element={<Services />} />
         <Route path="/Pricing" element={<Pricing />} />
