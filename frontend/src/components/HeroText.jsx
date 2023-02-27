@@ -11,7 +11,7 @@ const HeroText = ({ heading, title, body, images }) => {
             <p className="py-6 lg:text-2xl text-3xl md:max-w-md lg:leading-loose leading-loose">
               {body}
             </p>
-            <div className="lg:contents md:grid md:ml-10">
+            <div className="lg:contents sm:grid md:grid-cols-none sm:grid-cols-2 place-items-center md:ml-10">
               <img
                 className="lg:mt-10 md:h-64 md:w-64 sm:h-48 sm:w-48 sm:block hidden"
                 src="src/assets/NASA_logo.svg"
