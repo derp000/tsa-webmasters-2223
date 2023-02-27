@@ -12,15 +12,7 @@ const HeroText = ({ heading, title, body, images }) => {
               {body}
             </p>
             <div className="lg:contents sm:grid md:grid-cols-none sm:grid-cols-2 place-items-center md:ml-10">
-              <img
-                className="lg:mt-10 md:h-64 md:w-64 sm:h-48 sm:w-48 sm:block hidden"
-                src="src/assets/NASA_logo.svg"
-              />
-              {/* mt-10 + mt-12 or lg:mt-16  */}
-              <img
-                className="md:h-32 md:w-64 lg:mt-[6.5rem] sm:h-24 sm:w-48 sm:bg-white sm:block hidden"
-                src="src/assets/European_Space_Agency_logo.svg"
-              />
+              {images.map((img) => img)}
             </div>
           </div>
         </div>
