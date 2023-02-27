@@ -32,7 +32,7 @@ const HeroText = ({ heading, title, body, images, reverseAlign }) => {
   const heroBody = [heroBodyText, heroImages];
 
   return (
-    <div className="hero h-fit bg-base-200 px-2 mt-5">
+    <div className="hero h-fit bg-base-200 px-2">
       <div
         className={`hero-content ${reverseAlign ? "text-right" : "text-left"}`}
       >

@@ -3,7 +3,6 @@ import HeroImage from "./HeroImage";
 import HeroText from "./HeroText";
 
 const cta = "We're gonna get YOU to space.";
-const space_image = "https://cataas.com/cat/says/Space%20Rocks!";
 
 const bodyIntro = `
   Helios is an international, English-speaking astronaut training 
@@ -49,20 +48,30 @@ const huntsville = (
 const AboutUs = () => {
   return (
     <div>
-      <HeroImage callToAction={cta} imgUrl={space_image} />
-      <HeroText
-        heading={"The best of the best"}
-        title={"Home to leading aerospace professionals."}
-        body={bodyIntro}
-        images={[nasa, esa]}
+      <HeroImage
+        callToAction={cta}
+        imgSrc={"src/assets/HuntsvilleRocket.jfif"}
       />
-      <HeroText
-        heading={"Welcome to AL"}
-        title={"Born in the heart of Alabama's space industry."}
-        body={bodySite}
-        images={[huntsville]}
-        reverseAlign={true}
-      />
+      <div className="flex flex-col w-full border-opacity-50">
+        <div className="grid card rounded-box">
+          <HeroText
+            heading={"The best of the best"}
+            title={"Home to leading aerospace professionals."}
+            body={bodyIntro}
+            images={[nasa, esa]}
+          />
+        </div>
+        <div className="divider"></div>
+        <div className="grid card rounded-box">
+          <HeroText
+            heading={"Welcome to AL"}
+            title={"Born in the heart of Alabama's space industry."}
+            body={bodySite}
+            images={[huntsville]}
+            reverseAlign={true}
+          />
+        </div>
+      </div>
     </div>
   );
 };

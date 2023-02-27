@@ -1,11 +1,11 @@
 import React from "react";
 
-const HeroImage = ({ callToAction, imgUrl }) => {
+const HeroImage = ({ callToAction, imgSrc }) => {
   return (
     <div
       className="hero h-1/2"
       style={{
-        backgroundImage: `url(${imgUrl})`,
+        backgroundImage: `url(${imgSrc})`,
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
@@ -14,7 +14,9 @@ const HeroImage = ({ callToAction, imgUrl }) => {
           <h1 className="mb-5 mt-10 xl:text-8xl text-3xl font-bold">
             {callToAction}
           </h1>
-          <button className="btn btn-primary mb-10 text-xs lg:text-sm">Get Started</button>
+          <button className="btn btn-primary mb-10 text-xs lg:text-sm">
+            Get Started
+          </button>
         </div>
       </div>
     </div>
